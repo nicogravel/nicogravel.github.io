@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+  <meta name="description" content="Neuroimaging, bioinstrumentation, vision.
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/katex/">
+  <link rel="alternate" type="application/rss+xml" title="Nicolás Gravel" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Nicolás Gravel</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            
+            <a class="page-link" href="/about.html">About</a>
+            
+            
+        
+          
+            
+            
+        
+          
+            
+            
+        
+            
+        
+            
+        
+          
+            
+            
+        
+          
+            
+            
+        
+          
+            
+            <a class="page-link" href="/katex/"></a>
+            
+            
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+  </header>
+
+  <article class="post-content">
+    <h1 id="-"><a href="https://khan.github.io/KaTeX/"><img src="https://khan.github.io/KaTeX/katex-logo.svg" width="130" alt="KaTeX" /></a> <a href="https://travis-ci.org/Khan/KaTeX"><img src="https://travis-ci.org/Khan/KaTeX.svg?branch=master" alt="Build Status" /></a></h1>
+
+<p>KaTeX is a fast, easy-to-use JavaScript library for TeX math rendering on the web.</p>
+
+<ul>
+  <li><strong>Fast:</strong> KaTeX renders its math synchronously and doesn’t need to reflow the page. See how it compares to a competitor in <a href="http://jsperf.com/katex-vs-mathjax/">this speed test</a>.</li>
+  <li><strong>Print quality:</strong> KaTeX’s layout is based on Donald Knuth’s TeX, the gold standard for math typesetting.</li>
+  <li><strong>Self contained:</strong> KaTeX has no dependencies and can easily be bundled with your website resources.</li>
+  <li><strong>Server side rendering:</strong> KaTeX produces the same output regardless of browser or environment, so you can pre-render expressions using Node.js and send them as plain HTML.</li>
+</ul>
+
+<p>KaTeX supports all major browsers, including Chrome, Safari, Firefox, Opera, and IE 8 - IE 11.  A list of supported  commands can be on the <a href="https://github.com/Khan/KaTeX/wiki/Function-Support-in-KaTeX">wiki</a>.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>You can <a href="https://github.com/khan/katex/releases">download KaTeX</a> and host it on your server or include the <code class="language-plaintext highlighter-rouge">katex.min.js</code> and <code class="language-plaintext highlighter-rouge">katex.min.css</code> files on your page directly from a CDN:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h4 id="in-browser-rendering">In-browser rendering</h4>
+
+<p>Call <code class="language-plaintext highlighter-rouge">katex.render</code> with a TeX expression and a DOM element to render into:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">katex</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="dl">"</span><span class="s2">c = </span><span class="se">\\</span><span class="s2">pm</span><span class="se">\\</span><span class="s2">sqrt{a^2 + b^2}</span><span class="dl">"</span><span class="p">,</span> <span class="nx">element</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>If KaTeX can’t parse the expression, it throws a <code class="language-plaintext highlighter-rouge">katex.ParseError</code> error.</p>
+
+<h4 id="server-side-rendering-or-rendering-to-a-string">Server side rendering or rendering to a string</h4>
+
+<p>To generate HTML on the server or to generate an HTML string of the rendered math, you can use <code class="language-plaintext highlighter-rouge">katex.renderToString</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">katex</span><span class="p">.</span><span class="nx">renderToString</span><span class="p">(</span><span class="dl">"</span><span class="s2">c = </span><span class="se">\\</span><span class="s2">pm</span><span class="se">\\</span><span class="s2">sqrt{a^2 + b^2}</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// '&lt;span class="katex"&gt;...&lt;/span&gt;'</span>
+</code></pre></div></div>
+
+<p>Make sure to include the CSS and font files, but there is no need to include the JavaScript. Like <code class="language-plaintext highlighter-rouge">render</code>, <code class="language-plaintext highlighter-rouge">renderToString</code> throws if it can’t parse the expression.</p>
+
+<h4 id="rendering-options">Rendering options</h4>
+
+<p>You can provide an object of options as the last argument to <code class="language-plaintext highlighter-rouge">katex.render</code> and <code class="language-plaintext highlighter-rouge">katex.renderToString</code>. Available options are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">displayMode</code>: <code class="language-plaintext highlighter-rouge">boolean</code>. If <code class="language-plaintext highlighter-rouge">true</code> the math will be rendered in display mode, which will put the math in display style (so <code class="language-plaintext highlighter-rouge">\int</code> and <code class="language-plaintext highlighter-rouge">\sum</code> are large, for example), and will center the math on the page on its own line. If <code class="language-plaintext highlighter-rouge">false</code> the math will be rendered in inline mode. (default: <code class="language-plaintext highlighter-rouge">false</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">throwOnError</code>: <code class="language-plaintext highlighter-rouge">boolean</code>. If <code class="language-plaintext highlighter-rouge">true</code>, KaTeX will throw a <code class="language-plaintext highlighter-rouge">ParseError</code> when it encounters an unsupported command. If <code class="language-plaintext highlighter-rouge">false</code>, KaTeX will render the unsupported command as text in the color given by <code class="language-plaintext highlighter-rouge">errorColor</code>. (default: <code class="language-plaintext highlighter-rouge">true</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">errorColor</code>: <code class="language-plaintext highlighter-rouge">string</code>. A color string given in the format <code class="language-plaintext highlighter-rouge">"#XXX"</code> or <code class="language-plaintext highlighter-rouge">"#XXXXXX"</code>. This option determines the color which unsupported commands are rendered in. (default: <code class="language-plaintext highlighter-rouge">#cc0000</code>)</li>
+</ul>
+
+<p>For example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">katex</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="dl">"</span><span class="s2">c = </span><span class="se">\\</span><span class="s2">pm</span><span class="se">\\</span><span class="s2">sqrt{a^2 + b^2}</span><span class="dl">"</span><span class="p">,</span> <span class="nx">element</span><span class="p">,</span> <span class="p">{</span> <span class="na">displayMode</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="automatic-rendering-of-math-on-a-page">Automatic rendering of math on a page</h4>
+
+<p>Math on the page can be automatically rendered using the auto-render extension. See <a href="contrib/auto-render/README.md">the Auto-render README</a> for more information.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>See <a href="CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+
+<h2 id="license">License</h2>
+
+<p>KaTeX is licensed under the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+
+  </article>
+
+</div>
+
+<!--  Sidebar experiments -->
+   <!--    
+ -->
+        
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+   <!--    -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <!-- <li>Nicolás Gravel</li> -->
+          <li><a href="mailto:nicolas.gravel [at] gmail.com">nicolas.gravel [at] gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          <!--  -->
+          <li>
+            <a href="https://github.com/nicogravel">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <!-- <span class="username">nicogravel</span> -->
+            </a>
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Neuroimaging, bioinstrumentation, vision.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68063749-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</html>
+
+
